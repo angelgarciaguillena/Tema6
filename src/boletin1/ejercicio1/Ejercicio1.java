@@ -5,6 +5,10 @@ import java.io.FileReader;
 import java.util.Scanner;
 
 public class Ejercicio1 {
+	
+	/*Creamos una constante para almacenar el fichero*/
+	public static final String FICHERO = "src\\boletin1\\ejercicio1\\NumerosReales.txt";
+	
 	public static void main(String[] args) {
 		
 		/*Creamos una variable para almacenar el numero*/
@@ -20,7 +24,7 @@ public class Ejercicio1 {
 		int contador = 0;
 		
 		/*Creamos un try catch para lanzar un mensaje con el error en el caso de que se produzca*/
-		try(Scanner sc = new Scanner(new FileReader("src\\boletin1\\ejercicio1\\NumerosReales"))) {
+		try(Scanner sc = new Scanner(new FileReader(FICHERO))) {
 			
 			/*Creamos un bucle while para recorrer el archivo*/
 			while(sc.hasNextDouble()) {
@@ -50,6 +54,6 @@ public class Ejercicio1 {
 		/*Mostramos el mensaje en caso de que se produzca el error*/
 		} catch (FileNotFoundException e) {
 			System.err.println("Error: No se encuentra el fichero " + e.getMessage());
-		}
+		} 
 	}
 }

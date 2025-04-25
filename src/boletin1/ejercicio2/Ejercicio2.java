@@ -5,6 +5,10 @@ import java.io.FileReader;
 import java.util.Scanner;
 
 public class Ejercicio2 {
+	
+	/*Creamos una constante para almacenar el fichero*/
+	public static final String FICHERO = "src\\boletin1\\ejercicio2\\Enteros.txt";
+	
 	public static void main(String[] args) {
 		
 		/*Creamos una variable para almacenar el numero*/
@@ -20,7 +24,7 @@ public class Ejercicio2 {
 		int contador = 0;
 		
 		/*Creamos un try catch para notificar al usuario en caso de que se produzca un error*/
-		try(Scanner sc = new Scanner(new FileReader("src\\boletin1\\ejercicio2\\Enteros"))) {
+		try(Scanner sc = new Scanner(new FileReader(FICHERO))) {
 			
 			/*Creamos un bucle while para leer el archivo */
 			while(sc.hasNextInt()) {
@@ -43,6 +47,9 @@ public class Ejercicio2 {
 			
 			/*Mostramos la media*/
 			System.out.println("Media aritmetica: " + media);
+			
+			/*Cerramos el Scanner*/
+			sc.close();
 			
 		/*Lanzamos un mensaje de error en caso de que no se haya podido leer el archivo*/	
 		} catch (FileNotFoundException e) {
