@@ -93,7 +93,7 @@ public class Ejercicio8 {
 	}
 	
 	public static void menu() {
-		/*Mostramos el menu delprograma al usuario*/
+		/*Mostramos el menu del programa al usuario*/
 		System.out.println("\n" + "Menu:");
 		System.out.println("1. Registra nueva temperatura");
 		System.out.println("2. Mostrar historial de registros");
