@@ -2,6 +2,11 @@ package boletin2.ejercicio7;
 
 import java.util.Objects;
 
+/**
+ * Clase encargada de crear un nuevo objeto Cliente
+ * 
+ * @author Angel
+ */
 public class Cliente implements Comparable<Cliente> {
 
 	/**

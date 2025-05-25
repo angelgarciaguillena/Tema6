@@ -7,10 +7,9 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-
 /**
  * Clase encargada de la gestion del fichero donde se guardan los datos de los 
- * pacientes
+ * clientes
  * 
  * @author Angel
  */
