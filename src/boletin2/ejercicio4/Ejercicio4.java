@@ -11,27 +11,27 @@ import java.util.Map;
 
 public class Ejercicio4 {
 
-	/* Creamos una constante para almacenar el fichero con el alfabeto */
+	/*Creamos una constante para almacenar el fichero con el alfabeto*/
 	public static final String ALFABETO = "src\\boletin2\\ejercicio4\\Codec.txt";
 
 	/*Creamos una constante para almacenar el fichero con el mensaje sin encriptar*/
 	public static final String MENSAJE = "src\\boletin2\\ejercicio4\\MensajeSinEncriptar.txt";
 
-	/* Creamos una constante para almacenar el fichero con el mensaje encriptado */
+	/*Creamos una constante para almacenar el fichero con el mensaje encriptado*/
 	public static final String ENCRIPTADO = "src\\boletin2\\ejercicio4\\MensajeEncriptado.txt";
 
 	public static void main(String[] args) {
 
-		/* Creamos un mapa para almacenar el alfabeto */
+		/*Creamos un mapa para almacenar el alfabeto*/
 		Map<Character, Character> alfabetoCodificacion = new HashMap<>();
 
-		/* Leemos el alfabeto llamando a la funcion */
+		/*Leemos el alfabeto llamando a la funcion*/
 		alfabetoCodificacion = leerAlfabeto();
 
-		/* Codificamos el mensaje llamando a la funcion */
+		/*Codificamos el mensaje llamando a la funcion*/
 		codificarMensaje(alfabetoCodificacion);
 
-		/* Mostramos un mensaje de que ha finalizado el programa */
+		/*Mostramos un mensaje de que ha finalizado el programa*/
 		System.out.println("El programa ha terminado");
 	}
 
@@ -39,65 +39,56 @@ public class Ejercicio4 {
 
 	public static Map<Character, Character> leerAlfabeto() {
 
-		/* Creamos una variable para almacenar la cadena sin codificar */
+		/*Creamos una variable para almacenar la cadena sin codificar*/
 		String cadenaSinCodificar;
 
-		/* Creamos una variable para almacenar la cadena codificada */
+		/*Creamos una variable para almacenar la cadena codificada*/
 		String cadenaCodificada;
 
-		/* Creamos un array para almacenar los caracteres sin codificar */
+		/*Creamos un array para almacenar los caracteres sin codificar*/
 		String[] sinCifrado;
 
-		/* Creamos un array para almacenar los caracteres codificados */
+		/*Creamos un array para almacenar los caracteres codificados*/
 		String[] cifrado;
 
-		/* Creamos un mapa almacenar el alfabeto */
+		/*Creamos un mapa almacenar el alfabeto*/
 		Map<Character, Character> alfabeto = new HashMap<>();
 
-		/*
-		 * Creamos un try catch para notificar al usuario en caso de que se produzca un
-		 * error
-		 */
+		/*Creamos un try catch para notificar al usuario en caso de que se produzca un error*/
 		try (BufferedReader br = new BufferedReader(new FileReader(ALFABETO))) {
 
-			/* Leemos la linea sin codificar del fichero */
+			/*Leemos la linea sin codificar del fichero*/
 			cadenaSinCodificar = br.readLine();
 
-			/* Leemos la linea codificada del fichero */
+			/*Leemos la linea codificada del fichero*/
 			cadenaCodificada = br.readLine();
 
-			/* Almacenamos los caracteres sin cifrado */
+			/*Almacenamos los caracteres sin cifrado*/
 			sinCifrado = cadenaSinCodificar.split(" ");
 
-			/* Almacenamos los caracteres cifrados */
+			/*Almacenamos los caracteres cifrados*/
 			cifrado = cadenaCodificada.split(" ");
 
-			/* Creamos un bucle for para recorrer la cadena sin codificar */
+			/*Creamos un bucle for para recorrer la cadena sin codificar*/
 			for (int i = 0; i < cifrado.length; i++) {
 
-				/* Almacenamos el alfabeto en el mapa */
+				/*Almacenamos el alfabeto en el mapa*/
 				alfabeto.put(sinCifrado[i].charAt(0), cifrado[i].charAt(0));
 			}
 
-			/* Cerramos el BufferedReader */
+			/*Cerramos el BufferedReader*/
 			br.close();
 
-			/*
-			 * Lanzamos un mensaje de error en caso de que no se haya podido encontrar el
-			 * archivo
-			 */
+		/*Lanzamos un mensaje de error en caso de que no se haya podido encontrar el archivo*/
 		} catch (FileNotFoundException e) {
 			System.out.println("No se ha encontrado el fichero" + e.getMessage());
 
-			/*
-			 * Lanzamos un mensaje de error en caso de que no se haya podido leer en el
-			 * archivo
-			 */
+	    /*Lanzamos un mensaje de error en caso de que no se haya podido leer en el archivo*/
 		} catch (IOException e) {
 			System.out.println("No se ha podido leer el fichero" + e.getMessage());
 		}
 
-		/* Devolvemos el mapa */
+		/*Devolvemos el mapa*/
 		return alfabeto;
 	}
 
@@ -110,7 +101,7 @@ public class Ejercicio4 {
 			/*Creamos una variable para almacenar la linea*/
 			String linea = "";
 			
-			/* Creamos una variable para almacenar el mensaje codificado */
+			/*Creamos una variable para almacenar el mensaje codificado*/
 			String mensajeCodificado = "";
 			
 			/*Leemos la linea*/
@@ -119,10 +110,10 @@ public class Ejercicio4 {
 			/*Creamos un bucle while para leer el archivo*/
 	        while (linea != null) {
 	        	
-	        	/* Creamos un bucle for para recorrer la linea */
+	        	/*Creamos un bucle for para recorrer la linea*/
 	        	for (char caracter : linea.toCharArray()) {
 	        		
-	        		/* Añadimos los caracteres codificados al mensaje */
+	        		/*Añadimos los caracteres codificados al mensaje*/
 	        		mensajeCodificado += mapaCodificacion.getOrDefault(caracter, caracter);
 	            }
 	                
@@ -152,7 +143,7 @@ public class Ejercicio4 {
 		 } catch (FileNotFoundException e) {
 			 System.out.println("No se ha encontrado el fichero" + e.getMessage());
 			 
-			 /*Lanzamos un mensaje de error en caso de que no se haya podido leer en el archivo*/
+		 /*Lanzamos un mensaje de error en caso de que no se haya podido leer en el archivo*/
 		 } catch (IOException e) {
 			 System.out.println("Error al procesar los archivos: " + e.getMessage());
 		 }
